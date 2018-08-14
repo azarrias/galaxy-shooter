@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
+    public GameObject laserPrefab;
+
     [SerializeField]
     private float speed = 5.0f;
 
@@ -15,6 +17,13 @@ public class Player : MonoBehaviour {
 	void Update ()
     {
         Move();
+
+        // if space key pressed spawn laser at player position
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            // spawn my laser
+            Instantiate(laserPrefab, transform.position + new Vector3(0, 0.9f, 0), Quaternion.identity);
+        }
     }
 
     private void Move()
