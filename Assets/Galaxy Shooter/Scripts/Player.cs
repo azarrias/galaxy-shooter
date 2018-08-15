@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
+    public bool canTripleShot = false;
+
     [SerializeField]
     private GameObject laserPrefab;
+    [SerializeField]
+    private GameObject tripleLaserPrefab;
     [SerializeField]
     private float fireRate = 0.25f;
     private float nextFire = 0.0f;
@@ -34,7 +38,15 @@ public class Player : MonoBehaviour {
         // Cool down system
         if (Time.time > nextFire)
         {
-            Instantiate(laserPrefab, transform.position + new Vector3(0, 0.9f, 0), Quaternion.identity);
+            if (canTripleShot)
+            {
+                Instantiate(tripleLaserPrefab, transform.position, Quaternion.identity);
+            }
+            else
+            {
+                Instantiate(laserPrefab, transform.position + new Vector3(0, 0.9f, 0), Quaternion.identity);
+            }
+
             nextFire = Time.time + fireRate;
         }
     }
@@ -65,4 +77,19 @@ public class Player : MonoBehaviour {
             transform.position = new Vector3(transform.position.x, -4.2f, 0);
         }
     }
+
+    public void TripleShotPowerupEnable()
+    {
+        canTripleShot = true;
+        StartCoroutine(TripleShotPowerDownRoutine());
+    }
+
+    public IEnumerator TripleShotPowerDownRoutine()
+    {
+        // Power down system
+        // Wait for 5 seconds, then disable the power up
+        yield return new WaitForSeconds(5.0f);
+        canTripleShot = false;
+    }
+
 }
