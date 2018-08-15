@@ -5,6 +5,8 @@ using UnityEngine;
 public class Player : MonoBehaviour {
 
     public GameObject laserPrefab;
+    public float fireRate = 0.25f;
+    public float nextFire = 0.0f;
 
     [SerializeField]
     private float speed = 5.0f;
@@ -19,10 +21,14 @@ public class Player : MonoBehaviour {
         Move();
 
         // if space key pressed spawn laser at player position
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButton(0))
         {
-            // spawn my laser
-            Instantiate(laserPrefab, transform.position + new Vector3(0, 0.9f, 0), Quaternion.identity);
+            // Cool down system
+            if (Time.time > nextFire)
+            {
+                Instantiate(laserPrefab, transform.position + new Vector3(0, 0.9f, 0), Quaternion.identity);
+                nextFire = Time.time + fireRate;
+            }
         }
     }
 
