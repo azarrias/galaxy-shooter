@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
-    public GameObject laserPrefab;
-    public float fireRate = 0.25f;
-    public float nextFire = 0.0f;
+    [SerializeField]
+    private GameObject laserPrefab;
+    [SerializeField]
+    private float fireRate = 0.25f;
+    private float nextFire = 0.0f;
 
     [SerializeField]
     private float speed = 5.0f;
@@ -23,12 +25,17 @@ public class Player : MonoBehaviour {
         // if space key pressed spawn laser at player position
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButton(0))
         {
-            // Cool down system
-            if (Time.time > nextFire)
-            {
-                Instantiate(laserPrefab, transform.position + new Vector3(0, 0.9f, 0), Quaternion.identity);
-                nextFire = Time.time + fireRate;
-            }
+            Shoot();
+        }
+    }
+
+    private void Shoot()
+    {
+        // Cool down system
+        if (Time.time > nextFire)
+        {
+            Instantiate(laserPrefab, transform.position + new Vector3(0, 0.9f, 0), Quaternion.identity);
+            nextFire = Time.time + fireRate;
         }
     }
 
