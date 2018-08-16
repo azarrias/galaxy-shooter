@@ -39,7 +39,7 @@ public class Powerup : MonoBehaviour {
                 }
                 else if (powerupID == 2)
                 {
-                    // enable shields
+                    player.ShieldBoostEnable();
                 }
             }
 

@@ -6,11 +6,18 @@ public class Player : MonoBehaviour {
 
     public bool canTripleShot = false;
     public bool hasSpeedBoost = false;
+    public bool hasShieldBoost = false;
+    public int lives = 3;
 
     [SerializeField]
     private GameObject laserPrefab;
     [SerializeField]
     private GameObject tripleLaserPrefab;
+    [SerializeField]
+    private GameObject explosionPrefab;
+    [SerializeField]
+    private GameObject shieldGameObject;
+
     [SerializeField]
     private float fireRate = 0.25f;
     private float nextFire = 0.0f;
@@ -87,6 +94,29 @@ public class Player : MonoBehaviour {
         }
     }
 
+    public void Damage()
+    {
+        if (hasShieldBoost)
+        {
+            hasShieldBoost = false;
+            shieldGameObject.SetActive(false);
+        }
+        else
+        {
+            --lives;
+            if (lives < 1)
+            {
+                Explode();
+            }
+        }
+    }
+
+    private void Explode()
+    {
+        Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        Destroy(gameObject);
+    }
+
     public void TripleShotPowerupEnable()
     {
         canTripleShot = true;
@@ -97,6 +127,13 @@ public class Player : MonoBehaviour {
     {
         hasSpeedBoost = true;
         StartCoroutine(SpeedBoostPowerDownRoutine());
+    }
+
+    public void ShieldBoostEnable()
+    {
+        hasShieldBoost = true;
+        shieldGameObject.SetActive(true);
+        StartCoroutine(ShieldBoostPowerDownRoutine());
     }
 
     public IEnumerator TripleShotPowerDownRoutine()
@@ -113,6 +150,15 @@ public class Player : MonoBehaviour {
         // Wait for 5 seconds, then disable the power up
         yield return new WaitForSeconds(5.0f);
         hasSpeedBoost = false;
+    }
+
+    public IEnumerator ShieldBoostPowerDownRoutine()
+    {
+        // Power down system
+        // Wait for 10 seconds, then disable the power up
+        yield return new WaitForSeconds(10.0f);
+        hasShieldBoost = false;
+        shieldGameObject.SetActive(false);
     }
 
 }
