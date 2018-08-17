@@ -511,6 +511,52 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.3369377, y: 3.722437}
   m_EdgeRadius: 0
+--- !u!1 &873409480
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 873409481}
+  - component: {fileID: 873409482}
+  m_Layer: 0
+  m_Name: Spawn Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &873409481
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 873409480}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.3079385, y: 0.42494532, z: 0.013671875}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &873409482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 873409480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50e3008e0b2ef3f458040f183e969468, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyShipPrefab: {fileID: 1510291012579428, guid: 51193c1d72d5f8b4a86f526d14a55d97,
+    type: 2}
+  powerups:
+  - {fileID: 1576097164041838, guid: 1f9390e1f3728bf4eadf8c90c2e477e9, type: 2}
+  - {fileID: 1102137573209630, guid: 7203bc056796c6d468231c2b120024d2, type: 2}
+  - {fileID: 1582537038121492, guid: 751d8292591ca4c46948496bb752d846, type: 2}
 --- !u!1 &1619362538
 GameObject:
   m_ObjectHideFlags: 0
