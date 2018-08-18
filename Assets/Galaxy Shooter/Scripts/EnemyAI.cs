@@ -9,10 +9,12 @@ public class EnemyAI : MonoBehaviour {
     [SerializeField]
     private GameObject explosionPrefab;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    private UIManager uiManager;
+
+    // Use this for initialization
+    void Start () {
+        uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
+ 	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -47,6 +49,7 @@ public class EnemyAI : MonoBehaviour {
             }
 
             Destroy(other.gameObject);
+            uiManager.UpdateScore();
             Explode();
         }
     }

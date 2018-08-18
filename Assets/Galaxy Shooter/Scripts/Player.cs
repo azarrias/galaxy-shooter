@@ -25,8 +25,16 @@ public class Player : MonoBehaviour {
     [SerializeField]
     private float speed = 5.0f;
 
+    private UIManager uiManager;
+
 	void Start () {
         transform.position = new Vector3(0, 0, 0);
+
+        uiManager = GameObject.Find("Canvas").GetComponent<UIManager>();
+        if (uiManager)
+        {
+            uiManager.UpdateLives(lives);
+        }
 	}
 	
 	// Update is called once per frame
@@ -104,6 +112,8 @@ public class Player : MonoBehaviour {
         else
         {
             --lives;
+            uiManager.UpdateLives(lives);
+
             if (lives < 1)
             {
                 Explode();
