@@ -26,6 +26,8 @@ public class Player : MonoBehaviour {
     private float speed = 5.0f;
 
     private UIManager uiManager;
+    private GameManager gameManager;
+    private SpawnManager spawnManager;
 
 	void Start () {
         transform.position = new Vector3(0, 0, 0);
@@ -34,6 +36,14 @@ public class Player : MonoBehaviour {
         if (uiManager)
         {
             uiManager.UpdateLives(lives);
+        }
+
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
+        spawnManager = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
+        if (spawnManager)
+        {
+            spawnManager.StartSpawnRoutines();
         }
 	}
 	
@@ -117,6 +127,8 @@ public class Player : MonoBehaviour {
             if (lives < 1)
             {
                 Explode();
+                gameManager.gameOver = true;
+                uiManager.ShowTitleScreen();
             }
         }
     }
