@@ -28,6 +28,7 @@ public class Player : MonoBehaviour {
     private UIManager uiManager;
     private GameManager gameManager;
     private SpawnManager spawnManager;
+    private AudioSource audioSource;
 
 	void Start () {
         transform.position = new Vector3(0, 0, 0);
@@ -45,6 +46,8 @@ public class Player : MonoBehaviour {
         {
             spawnManager.StartSpawnRoutines();
         }
+
+        audioSource = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -64,6 +67,8 @@ public class Player : MonoBehaviour {
         // Cool down system
         if (Time.time > nextFire)
         {
+            audioSource.Play();
+
             if (canTripleShot)
             {
                 Instantiate(tripleLaserPrefab, transform.position, Quaternion.identity);

@@ -80,6 +80,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionPrefab: {fileID: 1439475669754682, guid: d6bf22c7fdca27343902968f58dbebb4,
     type: 2}
+  audioClip: {fileID: 8300000, guid: a885c043fab7e46438bba03ba9dab6bc, type: 3}
 --- !u!212 &212157165179960930
 SpriteRenderer:
   m_ObjectHideFlags: 1

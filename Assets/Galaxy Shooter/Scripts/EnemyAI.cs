@@ -9,6 +9,8 @@ public class EnemyAI : MonoBehaviour {
     [SerializeField]
     private GameObject explosionPrefab;
 
+    [SerializeField]
+    private AudioClip audioClip;
     private UIManager uiManager;
 
     // Use this for initialization
@@ -57,6 +59,7 @@ public class EnemyAI : MonoBehaviour {
     private void Explode()
     {
         Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+        AudioSource.PlayClipAtPoint(audioClip, Camera.main.transform.position);
         Destroy(gameObject);
     }
 }
