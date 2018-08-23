@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212689484301223754}
   - component: {fileID: 114421268880551556}
   - component: {fileID: 58852865467968188}
+  - component: {fileID: 95866793877823268}
   m_Layer: 0
   m_Name: Tiple Shot Powerup
   m_TagString: Untagged
@@ -57,6 +58,23 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.1
+--- !u!95 &95866793877823268
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1576097164041838}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c85a0f19664ef784b9aa3823969c53ee, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114421268880551556
 MonoBehaviour:
   m_ObjectHideFlags: 1
