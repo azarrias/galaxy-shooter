@@ -17,6 +17,8 @@ public class Player : MonoBehaviour {
     private GameObject explosionPrefab;
     [SerializeField]
     private GameObject shieldGameObject;
+    [SerializeField]
+    private GameObject[] engines;
 
     [SerializeField]
     private float fireRate = 0.25f;
@@ -129,7 +131,15 @@ public class Player : MonoBehaviour {
             --lives;
             uiManager.UpdateLives(lives);
 
-            if (lives < 1)
+            if (lives == 2)
+            {
+                engines[0].SetActive(true);
+            }
+            else if (lives == 1)
+            {
+                engines[1].SetActive(true);
+            }
+            else if (lives < 1)
             {
                 Explode();
                 gameManager.gameOver = true;
