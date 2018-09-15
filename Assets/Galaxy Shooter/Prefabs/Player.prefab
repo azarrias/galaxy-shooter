@@ -24,6 +24,8 @@ GameObject:
   - component: {fileID: 61298113369929226}
   - component: {fileID: 50517869876668148}
   - component: {fileID: 82833416766219178}
+  - component: {fileID: 95007088098756202}
+  - component: {fileID: 114956074261095970}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -293,6 +295,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!95 &95007088098756202
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1365235015317038}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4daa1a9b9e25d7247975a3bf19c96ed2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!95 &95177917507173852
 Animator:
   serializedVersion: 3
@@ -388,6 +407,17 @@ MonoBehaviour:
   - {fileID: 1502496770138356}
   fireRate: 0.25
   speed: 5
+--- !u!114 &114956074261095970
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1365235015317038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3e4c515311d86044b700416e1a11af5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212001279828438284
 SpriteRenderer:
   m_ObjectHideFlags: 1
